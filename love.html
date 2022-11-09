@@ -12,14 +12,13 @@
   <style>
 
   html, body {
-
+    overflow: hidden;
+  background-image: url("https://acegif.com/wp-content/uploads/gifs/starfall-gif-57.gif");
   height: 100%;
 
   padding: 0;
 
   margin: 0;
-
-  background: #000;
 
 }
 
@@ -28,11 +27,26 @@
 }
 
 canvas {
+  scale: 1.1;
   position: absolute;
   width: 100%;
-
+  animation: example 0.5s linear 0s infinite;
   height: 100%;
 
+}
+
+@keyframes example {
+  0% {
+    scale: 1.0;
+  }
+
+  50% {
+    scale: 1.1;
+  }
+
+  100% {
+    scale: 1.0;
+  }
 }
 
 #source {
@@ -43,6 +57,7 @@ canvas {
 }
 
 #root {
+  font-family: 'Courier New', Courier, monospace;
   width: 100%;
   height: 100%;
   display: none;
@@ -74,10 +89,10 @@ canvas {
 
  <body>
 
-  <canvas id="pinkboard"></canvas>
+  <canvas hidden="hidden" id="pinkboard"></canvas>
   <div id="root">
-    <div style="color: #ff0de7; font-size: 40px;">I 	&#60;3 You Too </div>
-    <div style="color: #ff0de7; font-size: 30px;">Nhung Cute</div>
+    <div style="color: #ff0de7; font-size: 30px;">I 	&#60;3 You Too </div>
+    <div style="color: #ff0de7; font-size: 25px; font-style: italic;">Nhung Cute</div>
   </div>
 
   <div id="question" class="question">
@@ -397,7 +412,7 @@ var ParticlePool = (function() {
 
     return new Point(
 
-      110 * Math.pow(Math.sin(t), 3),
+      115 * Math.pow(Math.sin(t), 3),
 
       110 * Math.cos(t) - 50 * Math.cos(2 * t) - 20 * Math.cos(3 * t) - 10 * Math.cos(4 * t) + 25
 
@@ -457,12 +472,7 @@ var ParticlePool = (function() {
 
     // create the fill
 
-    function randomColor() {
-     let a = getRandomInt(3);
-     if(a==0) {return '#db3dff'}
-     return '#f0abff';
-    }
-    context.fillStyle = randomColor();
+    context.fillStyle = '#ff0de7';
 
     context.fill();
 
@@ -567,11 +577,10 @@ var ParticlePool = (function() {
   var resultInput = document.getElementById("result");
     resultInput.addEventListener("change", (e) => {
       if(e.target.value == "i<3u") {
-        canvas.style.display = "block";
         question.style.display = "none";
- canvas.width  = canvas.clientWidth;
-  canvas.height = canvas.clientHeight;
+        canvas.style.display = "block";
         document.getElementById('root').style.display = "flex";
+        window.onresize();
       }
     })
  </script>
