@@ -13,6 +13,7 @@
 
   html, body {
     overflow: hidden;
+  background-image: url("https://acegif.com/wp-content/uploads/gifs/starfall-gif-57.gif");
   height: 100%;
 
   padding: 0;
@@ -88,7 +89,7 @@ canvas {
 
  <body>
 
-  <canvas hidden="hidden" id="pinkboard"></canvas>
+  <canvas id="pinkboard"></canvas>
   <div id="root">
     <div style="color: #ff0de7; font-size: 30px;">I 	&#60;3 You Too </div>
     <div style="color: #ff0de7; font-size: 25px; font-style: italic;">Nhung Cute</div>
@@ -579,7 +580,8 @@ var ParticlePool = (function() {
         question.style.display = "none";
         canvas.style.display = "block";
         document.getElementById('root').style.display = "flex";
-        window.onresize();
+        canvas.width  = canvas.clientWidth;
+        canvas.height = canvas.clientHeight;
       }
     })
  </script>
