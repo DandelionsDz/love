@@ -569,7 +569,8 @@ var ParticlePool = (function() {
       if(e.target.value == "i<3u") {
         canvas.style.display = "block";
         question.style.display = "none";
-
+ canvas.width  = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
         document.getElementById('root').style.display = "flex";
       }
     })
